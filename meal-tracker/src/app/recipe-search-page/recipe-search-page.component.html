@@ -1,0 +1,20 @@
+<div class="page">
+    <app-back-button></app-back-button>
+    <div class="centered-container">
+        <h1>Add Meal to Plan</h1>
+        <!--Input for the user where types the string for search-->
+        <input
+            type="text"
+            class="full-width space-before space-after"
+            placeholder="Enter recipe to search"
+            [(ngModel)]="searchInputValue" />
+        <button
+            class="full-width space-after"
+            (click)="onSearchClicked()">Search</button>
+    </div>
+    <!--This is where display the recipe search results component (pass inputs)-->
+    <app-recipe-search-results-list
+        [recipes]="searchResults"
+        [ingredients]="ingredients">
+    </app-recipe-search-results-list>
+</div>

@@ -1,0 +1,30 @@
+<div class="list-container">
+    <h1>Planned Meals</h1>
+    <p *ngIf="isLoading">Loading...</p> <!--When its loading the data-->
+    <!--When the data is already loaded from the server-->
+    <ng-container *ngIf="!isLoading"> 
+        <!--display the meals planned for the next 7 days, index to indentify the days-->
+        <div class="list-item" *ngFor="let date of next7Days; index as i">
+            <!--Map the array of meals to their corresponding day of week-->
+            <!--first check if there's a planned meal for the day-->
+            <ng-container *ngIf="mealsForDays[i]">
+                <h3>{{ date.getDate() }}</h3>
+                <p>{{ mealsForDays[i]!.recipe.name }}</p>  <!--Name of recipe-->
+                <div class="right-action">  <!--button to delete a meal for that day-->
+                    <app-small-x (click)="onDelete(mealsForDays[i]!._id)"></app-small-x>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="!mealsForDays[i]">
+                <!--This if there're not a planned meal for the day-->
+                <h3>{{ date.getDate() }}</h3>
+                <p>No Meal planned</p>
+                <!--This shows the existing Meal - Button to add a Meal - Redirect to Recipes Search page-->
+                <div class="right-action">
+                    <a routerLink="/recipes" [queryParams]="{ date: date.toString() }">
+                        <button>Add</button>
+                    </a>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
