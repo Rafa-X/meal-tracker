@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const DB_NAME = 'meal-tracker';
+const DB_NAME = 'meal-tracker';  //name of the database - change if necessary
 
 //this will create a persistent MongoDB connection 
 export const db = {  
