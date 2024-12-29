@@ -18,35 +18,10 @@ export const routes: Routes = [
 },{
     path: 'shopping-list',
     component: ShoppingListPageComponent
-}
-];
+}];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
   })
 export class AppRoutingModule { }
-
-/*
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
-import { AppRoutingModule } from './app-routes';
-import { AppComponent } from './app.component';
-import { RouterOutlet } from '@angular/router';
-
-@NgModule({
-  declarations: [],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-      HttpClientModule,
-      FormsModule,
-    RouterOutlet,
-  ],
-  providers: [],
-})
-export class AppModule { }
-*/

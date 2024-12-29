@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IngredientsService } from '../ingredients.service';
 import { MealsService } from '../meals.service';
 import { Ingredient, Meal } from '../types';
@@ -9,7 +10,7 @@ import { IngredientsListComponent } from '../ingredients-list/ingredients-list.c
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [MealsListComponent, IngredientsListComponent ],
+  imports: [RouterModule, MealsListComponent, IngredientsListComponent ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })

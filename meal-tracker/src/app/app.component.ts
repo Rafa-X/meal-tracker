@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -11,3 +12,5 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'fsa-front-end-template';
 }
+
+bootstrapApplication(AppComponent);

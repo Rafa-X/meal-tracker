@@ -6,7 +6,7 @@ export interface Ingredient {
 }
 
 export interface Recipe {
-    _id: string,
+    id: string,  //different due to db input use
     name: string,
     ingredients: Ingredient[],
     originalRecipeLink: string,  //for copyright reasons add this

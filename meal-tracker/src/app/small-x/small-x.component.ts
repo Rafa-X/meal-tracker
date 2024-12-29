@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-small-x',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './small-x.component.html',
   styleUrl: './small-x.component.css'
 })

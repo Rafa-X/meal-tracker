@@ -11,10 +11,11 @@
         <button
             class="full-width space-after"
             (click)="onSearchClicked()">Search</button>
+
+        <!--This is where display the recipe search results component (pass inputs)-->
+        <app-recipe-search-results-list
+            [recipes]="searchResults"
+            [ingredients]="ingredients">
+        </app-recipe-search-results-list>
     </div>
-    <!--This is where display the recipe search results component (pass inputs)-->
-    <app-recipe-search-results-list
-        [recipes]="searchResults"
-        [ingredients]="ingredients">
-    </app-recipe-search-results-list>
 </div>

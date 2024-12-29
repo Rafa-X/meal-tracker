@@ -20,6 +20,16 @@ const dateAreSameDay = (date1: Date, date2: Date): boolean =>
 })
 
 export class MealsListComponent implements OnInit{
+    //return an array with the next 7 days
+    next7Days: Date[] = Array(7).fill(null).map((_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() + i);  //add the index to the actual date to make the 7
+      return date;
+    });
+
+    //helps to set the array of 7 days meals or if a day doesn't have a meal, set undefined
+    mealsForDays: (Meal | undefined)[] = [];
+    
     @Input() isLoading: boolean = true;
     private _meals: Meal[] = [];
     //this way, whenever the meal changes cause the other properties to rely and be recomputed
@@ -28,21 +38,11 @@ export class MealsListComponent implements OnInit{
         //assign the meals for the next seven days generated
         //map each one to their corresponding meal
         this.mealsForDays = this.next7Days.map(
-            day => this.meals.find(meal => dateAreSameDay(meal.plannedDate, day))
+            day => this.meals.find(meal => dateAreSameDay(day, meal.plannedDate))
         )
     }
 
     get meals() { return this._meals };
-
-    //return an array with the next 7 days
-    next7Days: Date[] = Array(7).fill(null).map((_, i) => {
-        const date = new Date();
-        date.setDate(date.getDate() + i);  //add the index to the actual date to make the 7
-        return date;
-    });
-
-    //helps to set the array of 7 days meals or if a day doesn't have a meal, set undefined
-    mealsForDays: (Meal | undefined)[] = [];
 
     //call the function to delete, uses the id given
     @Output() deleteMeal = new EventEmitter<string>();  

@@ -1,1 +1,14 @@
-<p>recipe-search-results-list works!</p>
+<!--Add the recipe on click using the id of it-->
+<div *ngFor="let recipe of recipes"
+    class="search-list-item" 
+    (click)="addMealWithRecipe(recipe.id)"> <!--This ID is for mongo insert so need to be .id-->
+    <h3>{{ recipe.name }}</h3>
+    <!--If the missing ingredients length is 0, it means they have all the required ingredients-->
+    <p *ngIf="getMissingIngredients(recipe).length === 0">
+        You have all the required ingredients!
+    </p>
+    <!--If they are missing some of the ingredients-->
+    <p *ngIf="getMissingIngredients(recipe).length > 0">
+        You're missing {{ getMissingIngredients(recipe).length }} ingredient(s).
+    </p>
+</div>

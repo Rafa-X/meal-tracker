@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { RecipeSearchResultsListComponent } from "../recipe-search-results-list/
   templateUrl: './recipe-search-page.component.html',
   styleUrl: './recipe-search-page.component.css'
 })
-export class RecipeSearchPageComponent {
+export class RecipeSearchPageComponent implements OnInit{
     searchInputValue: string = '';  //users input for recipe search
     ingredients: Ingredient[] = [];
     searchResults: Recipe[] = [];
@@ -27,6 +27,7 @@ export class RecipeSearchPageComponent {
     ) {}
 
     ngOnInit(): void {
+        //get the whole list of ingredients
         this.ingredientsService.getIngredients()
           .subscribe(ingredients => this.ingredients = ingredients)
     }
