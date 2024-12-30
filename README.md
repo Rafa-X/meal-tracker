@@ -7,7 +7,12 @@ Built with a robust backend using MongoDB, and a dynamic frontend, Meal Tracker 
 - Add ingredients, have track and manage them
 - View the shopping list od missing ingredients for the added meals
 
-
+<p align="center" style="margin-bottom: 0px !important;">
+  <img width=80% src="images/home-page.png" align="center">
+</p>
+<p align="center" style="margin-bottom: 0px !important;">
+  <img width=60% src="images/shopping-list.png" align="center">
+</p>
 
 ## FRONTEND
 ## Build
