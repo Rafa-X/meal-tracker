@@ -55,7 +55,7 @@ export class HomePageComponent implements OnInit {
             this.ingredients = updatedIngredients
             }, 
             error: (error) => { 
-                console.error('Error al eliminar el ingrediente:', error); 
+                console.error('Error deleting the ingredient', error); 
             }
         });
   }
